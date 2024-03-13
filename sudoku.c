@@ -111,7 +111,7 @@ int solve_sudoku(int x, int y)
 
 int check_column(int x, int y, int num)
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 9; i++)
     {
         if (sudoku[x][i] == num)
         {
@@ -123,7 +123,7 @@ int check_column(int x, int y, int num)
 
 int check_row(int x, int y, int num)
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 9; i++)
     {
         if (sudoku[i][y] == num)
         {
@@ -132,46 +132,6 @@ int check_row(int x, int y, int num)
     }
     return 0;
 }
-
-// int check_square(int x, int y, int num)
-// {
-//     if (x < 3)
-//     {
-//         x = 0;
-//     }
-//     else if (x < 6)
-//     {
-//         x = 3;
-//     }
-//     else
-//     {
-//         x = 6;
-//     }
-
-//     if (y < 3)
-//     {
-//         y = 0;
-//     }
-//     else if (y < 6)
-//     {
-//         y = 3;
-//     }
-//     else
-//     {
-//         y = 6;
-//     }
-
-//     for (int i = 0; i < 8; i++)
-//     {
-//         for (int j = y; j < y + 3; j++)
-//         {
-//             if (sudoku[x][i] == num)
-//             {
-//                 return 1;
-//             }
-//         }
-//     }
-// }
 
 int check_square(int x, int y, int num)
 {
