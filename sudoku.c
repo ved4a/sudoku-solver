@@ -1,23 +1,21 @@
-#include stdio.h
+#include <stdio.h>
 
 void print_sudoku(void);
-int solve_sudoku(int, int);
+int solve_sudoku(int x, int y);
 
 int check_column(int x, int y, int num);
 int check_row(int x, int y, int num);
 int check_square(int x, int y, int num);
 
 int sudoku[9][9] = {
-    0, 0, 3, 0, 2, 0, 6, 0, 0,
-    9, 0, 0, 3, 0, 5, 0, 0, 1,
-    0, 0, 1, 8, 0, 6, 4, 0, 0,
-    7, 0, 0, 0, 0, 0, 0, 0, 8,
-    0, 0, 6, 7, 0, 8, 2, 0, 0,
-    0, 0, 2, 6, 0, 9, 5, 0, 0,
-    8, 0, 0, 2, 0, 3, 0, 0, 9,
-    0, 0, 5, 0, 1, 0, 3, 0, 0};
-}
-;
+    {0, 0, 3, 0, 2, 0, 6, 0, 0},
+    {9, 0, 0, 3, 0, 5, 0, 0, 1},
+    {0, 0, 1, 8, 0, 6, 4, 0, 0},
+    {7, 0, 0, 0, 0, 0, 0, 0, 8},
+    {0, 0, 6, 7, 0, 8, 2, 0, 0},
+    {0, 0, 2, 6, 0, 9, 5, 0, 0},
+    {8, 0, 0, 2, 0, 3, 0, 0, 9},
+    {0, 0, 5, 0, 1, 0, 3, 0, 0}};
 
 int main(void)
 {
@@ -42,7 +40,7 @@ void print_sudoku(void)
     printf("\n\n");
 }
 
-int solve_sudoku(int, int)
+int solve_sudoku(int x, int y)
 {
     int num = 1;
 }
