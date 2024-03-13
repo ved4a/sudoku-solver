@@ -33,3 +33,19 @@ int is_empty(int game[][9], int *row, int *column)
     }
     return 0;
 }
+
+int is_valid(int puzzle[][9], int row, int column, int guess)
+{
+    int corner_i = row / 3 * 3;
+    int corner_j = column / 3 * 3;
+
+    for (int i = 0; i < 9; ++i)
+    {
+        if (puzzle[row][i] == guess)
+            return 0;
+        if (puzzle[i][column] == guess)
+            return 0;
+        if (puzzle[corner_i + (i % 3)][corner_j + (i / 3)] == guess)
+            return 0;
+    }
+}
