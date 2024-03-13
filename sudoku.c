@@ -43,6 +43,59 @@ void print_sudoku(void)
 int solve_sudoku(int x, int y)
 {
     int num = 1;
+    int tx = 0;
+    int ty = 0;
+
+    if (sudoku[x][y] != 0)
+    {
+        if (x < 8)
+        {
+            x++;
+        }
+        else
+        {
+            x = 0;
+            y++;
+        }
+
+        if (solve_sudoku(x, y))
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    if (sudoku[x][y] == 0)
+    {
+        while (num < 10)
+        {
+            if (!check_square(x, y, num) && !check_column(x, y, num) && !check_row(x, y, num))
+            {
+                sudoku[x][y] = num;
+
+                if (x < 8)
+                {
+                    tx = x + 1;
+                }
+                else
+                {
+                    tx = 0;
+                    ty = y + 1;
+                }
+
+                if (solve_sudoku(tx, ty))
+                {
+                    return 1;
+                }
+
+                num++;
+            }
+        }
+        return 0;
+    }
 }
 
 int check_column(int x, int y, int num)
