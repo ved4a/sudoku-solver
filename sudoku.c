@@ -29,9 +29,9 @@ int main(void)
 
 void print_sudoku(void)
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 9; i++)
     {
-        for (int j = 0; j < 8; j++)
+        for (int j = 0; j < 9; j++)
         {
             printf("%d", sudoku[i][j]);
         }
@@ -103,8 +103,10 @@ int solve_sudoku(int x, int y)
             }
             num++;
         }
+        sudoku[x][y] = 0;
         return 0;
     }
+    return 0;
 }
 
 int check_column(int x, int y, int num)
@@ -131,42 +133,59 @@ int check_row(int x, int y, int num)
     return 0;
 }
 
+// int check_square(int x, int y, int num)
+// {
+//     if (x < 3)
+//     {
+//         x = 0;
+//     }
+//     else if (x < 6)
+//     {
+//         x = 3;
+//     }
+//     else
+//     {
+//         x = 6;
+//     }
+
+//     if (y < 3)
+//     {
+//         y = 0;
+//     }
+//     else if (y < 6)
+//     {
+//         y = 3;
+//     }
+//     else
+//     {
+//         y = 6;
+//     }
+
+//     for (int i = 0; i < 8; i++)
+//     {
+//         for (int j = y; j < y + 3; j++)
+//         {
+//             if (sudoku[x][i] == num)
+//             {
+//                 return 1;
+//             }
+//         }
+//     }
+// }
+
 int check_square(int x, int y, int num)
 {
-    if (x < 3)
-    {
-        x = 0;
-    }
-    else if (x < 6)
-    {
-        x = 3;
-    }
-    else
-    {
-        x = 6;
-    }
-
-    if (y < 3)
-    {
-        y = 0;
-    }
-    else if (y < 6)
-    {
-        y = 3;
-    }
-    else
-    {
-        y = 6;
-    }
-
-    for (int i = 0; i < 8; i++)
+    x = x / 3 * 3;
+    y = y / 3 * 3;
+    for (int i = x; i < x + 3; i++)
     {
         for (int j = y; j < y + 3; j++)
         {
-            if (sudoku[x][i] == num)
+            if (sudoku[i][j] == num)
             {
                 return 1;
             }
         }
     }
+    return 0;
 }
