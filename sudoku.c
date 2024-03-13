@@ -3,9 +3,9 @@
 void print_sudoku(void);
 int solve_sudoku(int, int);
 
-int check_column(int, int, int);
-int check_row(int, int, int);
-int check_square(int, int, int);
+int check_column(int x, int y, int);
+int check_row(int x, int y, int);
+int check_square(int x, int y, int);
 
 
 int main() {
@@ -37,4 +37,17 @@ int check_column(int x, int y, int num) {
         }
     }
     return 0;
+}
+
+int check_row(int x, int y, int num) {
+    for (int i = 0 ; i < 8; i++){
+        if (sudoku[i][y] == num) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int check_square(int x, int y, int num) {
+    
 }
