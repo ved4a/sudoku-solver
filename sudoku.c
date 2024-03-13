@@ -23,7 +23,7 @@ int main(void)
     int y = 0;
 
     print_sudoku();
-    // need to solve it now
+    solve_sudoku(x, y);
     print_sudoku();
 }
 
@@ -48,6 +48,11 @@ int solve_sudoku(int x, int y)
 
     if (sudoku[x][y] != 0)
     {
+        if (x == 8 && y == 8)
+        {
+            return 1;
+        }
+
         if (x < 8)
         {
             x++;
@@ -76,6 +81,11 @@ int solve_sudoku(int x, int y)
             {
                 sudoku[x][y] = num;
 
+                if (x == 8 && y == 8)
+                {
+                    return 1;
+                }
+
                 if (x < 8)
                 {
                     tx = x + 1;
@@ -90,9 +100,8 @@ int solve_sudoku(int x, int y)
                 {
                     return 1;
                 }
-
-                num++;
             }
+            num++;
         }
         return 0;
     }
