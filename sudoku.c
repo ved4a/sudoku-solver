@@ -16,6 +16,20 @@ int game[9][9] =
      {0, 0, 0, 6, 2, 7, 0, 3, 8},
      {0, 5, 3, 0, 8, 0, 0, 9, 6}};
 
-int is_empty(int[][9], int *, int *)
+int is_empty(int game[][9], int *row, int *column)
 {
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            if (!game[i][j])
+            {
+                *row = i;
+                *column = j;
+
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
